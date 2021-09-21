@@ -1,5 +1,6 @@
 package com.vicviral.plugins
 
+import com.vicviral.routes.randomCake
 import io.ktor.routing.*
 import io.ktor.http.*
 import io.ktor.content.*
@@ -12,11 +13,10 @@ fun Application.configureRouting() {
     
 
     routing {
-        get("/") {
-                call.respondText("Hello, Victor Loveday!")
-            }
+        randomCake()
+
         // Static plugin. Try to access `/static/index.html`
-        static("/static") {
+        static{
             resources("static")
         }
     }
